@@ -1,50 +1,24 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        List<Integer>arrayList = new ArrayList<>();
-        List<Integer>linkedList = new LinkedList<>();
+       Map<Integer,String>hashMap = new HashMap<>();
+       Map<Integer,String>linkedHashMap = new LinkedHashMap<>();
+       Map<Integer,String>treeMap = new TreeMap<>();
 
-        measureTimeAdd(arrayList);  //faster
-        measureTimeAdd(linkedList);
-
-        measureTimeAdd2(arrayList);
-        measureTimeAdd2(linkedList);//faster
-
-        measureTimeGet(arrayList);
-        measureTimeGet(linkedList);
+        testMap(hashMap);      //does not preserve the order in which the element was added
+        System.out.println();
+        testMap(linkedHashMap);//preserve the order
+        System.out.println();
+        testMap(treeMap);      //sort by key
     }
+     public static void testMap(Map<Integer,String>map){
+         map.put(22,"Bob");
+         map.put(11,"Bob");
+         map.put(33,"Mike");
 
-    //add to end of the list
-    public static void measureTimeAdd(List<Integer> list){
-        long start = System.currentTimeMillis();
-        for (int i=0;i<100000;i++){
-            list.add(i);
-        }
-        long finish = System.currentTimeMillis();
-        System.out.println(finish-start);
-    }
-
-
-    //add to start of the list
-    public static void measureTimeAdd2(List<Integer>list){
-        long start = System.currentTimeMillis();
-        for (int i=0;i<100000;i++){
-            list.add(0,i);
-        }
-        long finish = System.currentTimeMillis();
-        System.out.println(finish-start);
-    }
-
-    //get element
-    public static void measureTimeGet(List<Integer>list){
-        long start = System.currentTimeMillis();
-        for (int i=0;i<100000;i++){
-            list.add(i);
-        }
-        long finish = System.currentTimeMillis();
-        System.out.println(finish-start);
-    }
+         for (Map.Entry<Integer,String>entry:map.entrySet()){
+             System.out.println(entry.getKey()+" : "+entry.getValue());
+         }
+     }
 }
