@@ -2,25 +2,34 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-       Set<String>hashSet = new HashSet<>();
-       Set<String>linkedHashSet = new LinkedHashSet<>();
-       Set<String>treeSet = new TreeSet<>();
+       Set<Integer>hashSet1 = new HashSet<>();
+       Set<Integer>hashSet2 = new HashSet<>();
 
-       testSet(hashSet);
-       System.out.println();
-       testSet(linkedHashSet);
-       System.out.println();
-       testSet(treeSet);
-    }
-    public static void testSet(Set<String>set){
-        set.add("Zak");
-        set.add("Mike");
-        set.add("Don");
-        set.add("Tom");
-        set.add("Aron");
+        hashSet1.add(1);
+        hashSet1.add(2);
+        hashSet1.add(3);
+        hashSet1.add(4);
+        hashSet1.add(5);
 
-        for (String a:set){
-            System.out.print(a);
-        }
+        hashSet2.add(3);
+        hashSet2.add(4);
+        hashSet2.add(5);
+        hashSet2.add(6);
+        hashSet2.add(7);
+
+        //union
+        Set<Integer>union = new HashSet<>(hashSet1);
+        union.addAll(hashSet2);
+        System.out.println(union);
+
+        //intersection
+        Set<Integer>intersection = new HashSet<>(hashSet1);
+        intersection.retainAll(hashSet2);
+        System.out.println(intersection);
+
+        //difference
+        Set<Integer>difference = new HashSet<>(hashSet1);
+        difference.removeAll(hashSet2);
+        System.out.println(difference);
     }
 }
