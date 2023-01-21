@@ -5,7 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Test {
     public static void main(String[] args) {
-       Queue<Integer> queue = new ArrayBlockingQueue<>(3);
+        //FIFO
+        Queue<Integer> queue = new ArrayBlockingQueue<>(3);
 
         queue.add(22);
         queue.add(11);
