@@ -5,31 +5,16 @@ import java.util.concurrent.TimeUnit;
 
 public class Test {
     public static void main(String[] args) {
-        //FIFO
-        Queue<Integer> queue = new ArrayBlockingQueue<>(3);
+        //LIFO
+        Stack<Integer>stack = new Stack<>();
+        stack.push(22);
+        stack.push(11);
+        stack.push(88);
+        stack.push(33);
 
-        queue.add(22);
-        queue.add(11);
-        queue.add(33);
-        //throw exception: add, remove, element
-        //queue.add(44);
-        System.out.println(queue.remove());
-        System.out.println(queue.remove());
-        System.out.println(queue.remove());
-        //System.out.println(queue.remove());
-        //System.out.println(queue.element());
+        //System.out.println(stack.pop());
+        System.out.println(stack.peek());
 
-        //returns special value(true or false, null): offer, poll, peek
-        System.out.println(queue.offer(44));
-        System.out.println(queue.offer(66));
-        System.out.println(queue.offer(88));
-        System.out.println(queue.offer(77));
-
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        //System.out.println(queue.poll());
-
-        System.out.println(queue.peek());
+        System.out.println(stack.search(999));
     }
 }
