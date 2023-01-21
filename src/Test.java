@@ -1,35 +1,34 @@
 import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class Test {
     public static void main(String[] args) {
-       Set<Integer>hashSet1 = new HashSet<>();
-       Set<Integer>hashSet2 = new HashSet<>();
+       Queue<Integer> queue = new ArrayBlockingQueue<>(3);
 
-        hashSet1.add(1);
-        hashSet1.add(2);
-        hashSet1.add(3);
-        hashSet1.add(4);
-        hashSet1.add(5);
+        queue.add(22);
+        queue.add(11);
+        queue.add(33);
+        //throw exception: add, remove, element
+        //queue.add(44);
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+        //System.out.println(queue.remove());
+        //System.out.println(queue.element());
 
-        hashSet2.add(3);
-        hashSet2.add(4);
-        hashSet2.add(5);
-        hashSet2.add(6);
-        hashSet2.add(7);
+        //returns special value(true or false, null): offer, poll, peek
+        System.out.println(queue.offer(44));
+        System.out.println(queue.offer(66));
+        System.out.println(queue.offer(88));
+        System.out.println(queue.offer(77));
 
-        //union
-        Set<Integer>union = new HashSet<>(hashSet1);
-        union.addAll(hashSet2);
-        System.out.println(union);
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+        //System.out.println(queue.poll());
 
-        //intersection
-        Set<Integer>intersection = new HashSet<>(hashSet1);
-        intersection.retainAll(hashSet2);
-        System.out.println(intersection);
-
-        //difference
-        Set<Integer>difference = new HashSet<>(hashSet1);
-        difference.removeAll(hashSet2);
-        System.out.println(difference);
+        System.out.println(queue.peek());
     }
 }
